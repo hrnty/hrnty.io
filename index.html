@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>FPS感度計算ツール</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <h2>FPS感度計算ツール</h2>
+
+        <div class="input-container">
+            <label for="dpi">DPI（要入力/pls entry）:</label>
+            <input type="number" id="dpi" placeholder="DPIを入力" step="100" />
+        </div>
+
+        <div class="input-container">
+            <label for="game1">ゲーム1(game1)を選択:</label>
+            <select id="game1">
+                <option value="valorant">VALORANT</option>
+                <option value="overwatch">OVERWATCH</option>
+                <option value="apex">APEX</option>
+                <option value="Battlefield1">Battlefield1</option>
+                <option value="Battlefield2024">Battlefield2024</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <label for="sensitivity1">Sens（ゲーム1）:</label>
+            <input type="number" id="sensitivity1" placeholder="Sensitivityを入力" step="0.01" />
+        </div>
+
+        <div class="input-container">
+            <label for="game2">ゲーム2(game2)を選択:</label>
+            <select id="game2">
+                <option value="valorant">VALORANT</option>
+                <option value="overwatch">OVERWATCH</option>
+                <option value="apex">APEX</option>
+                <option value="Battlefield1">Battlefield1</option>
+                <option value="Battlefield2024">Battlefield2024</option>
+                <option value="Battlefield4"></option>
+            </select>
+        </div>
+
+        <div class="results-container" id="result">
+            計算結果: まだ計算されていません。
+        </div>
+
+        <h3>おすすめデバイス</h3>
+        <table class="devices-table">
+            <thead>
+                <tr>
+                    <th>商品画像</th>
+                    <th>商品名</th>
+                    <th>購入リンク</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img class="product-image" src="images/gpsl.jpg" alt="ゲーミングマウス A" /></td>
+                    <td class="device-name">Logicool G PRO X SUPERLIGHT 2</td>
+                    <td><a href="https://x.gd/lCuLG" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                </tr>
+                <tr>
+                    <td><img class="product-image" src="images/vv3pr.jpg" alt="ゲーミングマウス B" /></td>
+                    <td class="device-name">Razer Viper V3 Pro</td>
+                    <td><a href="https://x.gd/G4ZqP" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                </tr>
+                <tr>
+                    <td><img class="product-image" src="images/artisanzero.jpg" alt="ゲーミングマウス C" /></td>
+                    <td class="device-name">ARTISAN NINJA FX ゼロ SOFT XL ブラック</td>
+                    <td><a href="https://x.gd/saaTM" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                </tr>
+                <tr>
+                    <td><img class="product-image" src="images/lamuz maya8k.jpg" alt="ゲーミングマウス C" /></td>
+                    <td class="device-name">LAMZU MAYA X 8K </td>
+                    <td><a href="https://x.gd/saaTM" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 広告 -->
+    <div class="ad-container">
+        <a href="https://example.com" target="_blank">
+            <img src="images/ad.jpg" alt="広告" />
+        </a>
+    </div>
+
+    <!-- 外部JavaScriptファイルを読み込む -->
+    <script src="script.js"></script>
+</body>
+</html>
