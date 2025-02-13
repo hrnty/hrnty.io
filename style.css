@@ -4,7 +4,7 @@ body {
     padding: 20px;
     margin: 0;
     display: flex;
-    justify-content: flex-start; /* ã•”‚ÉŠñ‚¹‚é */
+    justify-content: flex-start; /* ä¸Šéƒ¨ã«å¯„ã›ã‚‹ */
     align-items: flex-start;
     height: 100vh;
     flex-direction: column;
@@ -20,17 +20,17 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    padding: 40px; /* ã‰º¶‰E‚É—]”’‚ğ’Ç‰Á */
+    padding: 40px; /* ä¸Šä¸‹å·¦å³ã«ä½™ç™½ã‚’è¿½åŠ  */
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    margin-top: 0; /* ã•”‚Ì—]”’‚ğ0‚Éİ’è */
-    margin-bottom: 20px; /* Œ©Ø‚ê‚È‚¢‚æ‚¤‚É‰º•”‚Ì—]”’‚ğ’Ç‰Á */
+    margin-top: 0; /* ä¸Šéƒ¨ã®ä½™ç™½ã‚’0ã«è¨­å®š */
+    margin-bottom: 20px; /* è¦‹åˆ‡ã‚Œãªã„ã‚ˆã†ã«ä¸‹éƒ¨ã®ä½™ç™½ã‚’è¿½åŠ  */
 }
 
-/* ‘¼‚ÌƒXƒ^ƒCƒ‹‚Í•ÏX‚È‚µ */
+/* ä»–ã®ã‚¹ã‚¿ã‚¤ãƒ«ã¯å¤‰æ›´ãªã— */
 .input-container {
     margin-bottom: 20px;
     width: 100%;
@@ -49,7 +49,22 @@ input[type="number"], select {
     box-sizing: border-box;
 }
 
-/* ŒvZŒ‹‰Ê‚Ì•\¦ƒGƒŠƒA */
+/* è¨ˆç®—çµæœã®è¡¨ç¤ºã‚¨ãƒªã‚¢ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
 .result {
     padding: 10px;
     background-color: #f0f0f0;
@@ -125,7 +140,7 @@ input[type="number"], select {
     width: 50px;
 }
 
-/* L */
+/* åºƒå‘Š */
 .ad-container {
     position: fixed;
     bottom: 20px;
