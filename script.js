@@ -66,35 +66,34 @@ function calculateSensitivity() {
    // 変更前（例）
 // resultContainer.innerHTML = 'Converted sensitivity: Not yet calculated';
 
-// 変更後
-resultContainer.innerHTML = `
-    <h3>Results</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>DPI</th>
-                <th>360°(cm)</th>
-                <th>180°(cm)</th>
-                <th>Converted Sensitivity</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
+ resultContainer.innerHTML = `
+        <h3>Results</h3>
+        <table>
+            <thead>
                 <tr>
-                    <td>${currentDPI}</td>
-                    <td>${distance360.toFixed(2)}</td>
-                    <td>${distance180.toFixed(2)}</td>
-                    <td>${sensitivity2.toFixed(2)}</td>
-                    <td>
-                        <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">Copy</button>
-                    </td>
+                    <th>DPI</th>
+                    <th>360°(cm)</th>
+                    <th>180°(cm)</th>
+                    <th>Converted Sensitivity</th>
+                    <th>Action</th>
                 </tr>
-            `).join('')}
-        </tbody>
-    </table>
-`;
-
+            </thead>
+            <tbody>
+                ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
+                    <tr>
+                        <td>${currentDPI}</td>
+                        <td>${distance360.toFixed(2)}</td>
+                        <td>${distance180.toFixed(2)}</td>
+                        <td>${sensitivity2.toFixed(2)}</td>
+                        <td>
+                            <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">Copy</button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+}
 
 function copyToClipboard(text, buttonElement) {
     navigator.clipboard.writeText(text).then(() => {
@@ -107,7 +106,6 @@ function copyToClipboard(text, buttonElement) {
         }, 3000);
     });
 }
-
 // イベントリスナーを登録
 dpiInput.addEventListener('input', calculateSensitivity);
 sensitivity1Input.addEventListener('input', calculateSensitivity);
