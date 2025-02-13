@@ -75,7 +75,7 @@ function calculateSensitivity() {
                     <th>360°(cm)</th>
                     <th>180°(cm)</th>
                     <th>Converted Sensitivity</th>
-                    <th>Action</th>
+                    <th>Copy buttons</th>
                 </tr>
             </thead>
             <tbody>
