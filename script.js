@@ -98,12 +98,12 @@ function calculateSensitivity() {
 function copyToClipboard(text, buttonElement) {
     navigator.clipboard.writeText(text).then(() => {
         // コピーしたテキストをボタンのテキストに変更
-        buttonElement.textContent = 'コピーしました！';
+        buttonElement.textContent = 'Copied！';
 
         // 1秒後に元のテキストに戻す
         setTimeout(() => {
-            buttonElement.textContent = 'コピー';
-        }, 1000);
+            buttonElement.textContent = 'Copy';
+        }, 3000);
     });
 }
 
