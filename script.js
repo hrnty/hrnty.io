@@ -84,7 +84,7 @@ function calculateSensitivity() {
                                 <td>${distance180.toFixed(2)}</td>
                                 <td>${sensitivity2.toFixed(2)}</td>
                                 <td>
-                                    <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">コピー</button>
+                                    <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">Copy</button>
                                 </td>
                             </tr>`
             )
