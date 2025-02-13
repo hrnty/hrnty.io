@@ -1,7 +1,5 @@
 ﻿// ゲームごとのYaw値
 const yawValues = {
-    valorant: 0.07,
-    overwatch: 0.0066,
     apex: 0.022,
     BattleBitRemastered: 0.00050,
     Battlefield2042: 0.00275 ,
@@ -16,11 +14,13 @@ const yawValues = {
     CallofDutyModernWarfareII: 0.006594,
     CallofDutyVanguard: 0.006594,
     CallofDutyWarzone: 0.006594,
+    Fortnite: 0.5715,
     GTA5: 0.022,
     HaloInfinite: .02062,
     XDefiant: 0.001782,
     MarvelRivals: 0.0175, 
-    Fortnite: 0.5715,
+    valorant: 0.07,
+    overwatch: 0.0066,
 };
 
 // 入力項目の参照
