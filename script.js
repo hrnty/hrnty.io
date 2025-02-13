@@ -64,15 +64,14 @@ function calculateSensitivity() {
 
     // 結果を表形式で表示
     resultContainer.innerHTML = `
-                           <h3>計算結果</h3>
+                           <h3>Results</h3>
            <table>
             <thead>
                 <tr>
                     <th>DPI</th>
-                    <th>360°距離 (cm)</th>
-                    <th>180°距離 (cm)</th>
-                    <th>変換後の感度</th>
-                    <th>操作</th>
+                    <th>360°(cm)</th>
+                    <th>180°(cm)</th>
+                    <th>Sensitivity after conversion</th>
                 </tr>
             </thead>
             <tbody>
