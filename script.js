@@ -42,7 +42,7 @@ function calculateSensitivity() {
 
     // 入力チェック
     if (isNaN(dpi) || isNaN(sensitivity1) || dpi <= 0 || sensitivity1 <= 0) {
-        resultContainer.innerHTML = '正しいDPIおよびSensitivityを入力してください。';
+        resultContainer.innerHTML = 'Please enter the correct DPI and Sensitivity';
         return;
     }
 
@@ -71,7 +71,7 @@ function calculateSensitivity() {
                     <th>DPI</th>
                     <th>360°(cm)</th>
                     <th>180°(cm)</th>
-                    <th>Sensitivity after conversion</th>
+                    <th>Converted　Sensitivity</th>
                 </tr>
             </thead>
             <tbody>
@@ -99,7 +99,7 @@ function copyToClipboard(text, buttonElement) {
         // コピーしたテキストをボタンのテキストに変更
         buttonElement.textContent = 'Copied！';
 
-        // 1秒後に元のテキストに戻す
+        // 3秒後に元のテキストに戻す
         setTimeout(() => {
             buttonElement.textContent = 'Copy';
         }, 3000);
