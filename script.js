@@ -2,10 +2,10 @@
 const yawValues = {
     apex: 0.022,
     BattleBitRemastered: 0.00050,
-    Battlefield2042: 0.00275 ,
-    Battlefield1: 0.0056 ,
-    Battlefield4: 0.0056 ,
-    Battlefieldv: 0.0056 ,
+    Battlefield2042: 0.00275,
+    Battlefield1: 0.0056,
+    Battlefield4: 0.0056,
+    Battlefieldv: 0.0056,
     CounterStrike: 0.022,
     CallofDutyBO3: 0.02108,
     CallofDutyBO4: 0.006594,
@@ -16,9 +16,9 @@ const yawValues = {
     CallofDutyWarzone: 0.006594,
     Fortnite: 0.5715,
     GTA5: 0.022,
-    HaloInfinite: .02062,
+    HaloInfinite: 0.02062,
     XDefiant: 0.001782,
-    MarvelRivals: 0.0175, 
+    MarvelRivals: 0.0175,
     valorant: 0.07,
     overwatch: 0.0066,
 };
@@ -48,25 +48,22 @@ function calculateSensitivity() {
 
     // 360°距離と感度を計算する関数
     function calculateForDPI(currentDPI) {
-        const distance360 = (360 * 2.54) / (dpi * yaw1 * sensitivity1); // 入力されたDPIでの360°距離
-        const distance180 = distance360 / 2; // 180°距離
-        const sensitivity2 = (360 * 2.54) / (currentDPI * yaw2 * distance360); // 変換後の感度
+        const distance360 = (360 * 2.54) / (dpi * yaw1 * sensitivity1);
+        const distance180 = distance360 / 2;
+        const sensitivity2 = (360 * 2.54) / (currentDPI * yaw2 * distance360);
         return { currentDPI, distance360, distance180, sensitivity2 };
     }
 
-    // 入力DPIおよび固定DPI値で計算
+    // 計算結果リスト
     const results = [
-        calculateForDPI(dpi),   // 入力DPI
-        calculateForDPI(400),   // DPI 400
-        calculateForDPI(800),   // DPI 800
-        calculateForDPI(1600),  // DPI 1600
+        calculateForDPI(dpi),
+        calculateForDPI(400),
+        calculateForDPI(800),
+        calculateForDPI(1600),
     ];
 
     // 結果を表形式で表示
-   // 変更前（例）
-// resultContainer.innerHTML = 'Converted sensitivity: Not yet calculated';
-
- resultContainer.innerHTML = `
+    resultContainer.innerHTML = `
         <h3>Results</h3>
         <table>
             <thead>
@@ -75,7 +72,7 @@ function calculateSensitivity() {
                     <th>360°(cm)</th>
                     <th>180°(cm)</th>
                     <th>Converted Sensitivity</th>
-                    <th>Copy buttons</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,16 +94,14 @@ function calculateSensitivity() {
 
 function copyToClipboard(text, buttonElement) {
     navigator.clipboard.writeText(text).then(() => {
-        // コピーしたテキストをボタンのテキストに変更
         buttonElement.textContent = 'Copied！';
-
-        // 3秒後に元のテキストに戻す
         setTimeout(() => {
             buttonElement.textContent = 'Copy';
         }, 3000);
     });
 }
-// イベントリスナーを登録
+
+// イベントリスナー登録
 dpiInput.addEventListener('input', calculateSensitivity);
 sensitivity1Input.addEventListener('input', calculateSensitivity);
 game1Select.addEventListener('change', calculateSensitivity);
