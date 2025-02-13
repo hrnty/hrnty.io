@@ -1,16 +1,37 @@
-
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
     margin: 0;
     display: flex;
-    justify-content: flex-start; /* 上部に寄せる */
+    justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
     flex-direction: column;
     background-color: #f9f9f9;
     box-sizing: border-box;
 }
+
+/* sensitivity コンテナと YouTube 紹介欄をまとめるラッパー */
+.container-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto; /* 全体を中央に配置 */
+}
+
+/* YouTube紹介欄を sensitivity コンテナの左側に配置 */
+.youtube-intro {
+    position: absolute;
+    top: 0;
+    left: -360px; /* sensitivity コンテナのすぐ左に配置（例：感覚に合わせ調整） */
+    width: 300px; /* YouTube紹介欄の幅 */
+}
+
+    .youtube-intro img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 
 .container {
     max-width: 700px;
@@ -20,17 +41,16 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    padding: 40px; /* 上下左右に余白を追加 */
+    padding: 40px;
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    margin-top: 0; /* 上部の余白を0に設定 */
-    margin-bottom: 20px; /* 見切れないように下部の余白を追加 */
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
-/* 他のスタイルは変更なし */
 .input-container {
     margin-bottom: 20px;
     width: 100%;
@@ -49,46 +69,23 @@ input[type="number"], select {
     box-sizing: border-box;
 }
 
-/* 計算結果の表示エリア */
+.results-container {
+    margin: 20px 0;
+}
+
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
-}
-
-.result {
-    padding: 10px;
-    background-color: #f0f0f0;
-    margin-top: 20px;
-    font-size: 18px;
-    width: 100%;
-    box-sizing: border-box;
-    white-space: pre-line;
-}
-
-.results-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.result-box {
-    width: 48%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #f0f0f0;
-    box-sizing: border-box;
-    text-align: center;
+    background-color: #f2f2f2;
 }
 
 .devices-table {
@@ -111,17 +108,6 @@ th {
     font-weight: bold;
 }
 
-.device-link img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-}
-
-.device-link {
-    display: block;
-    text-decoration: none;
-}
-
 .devices-table td {
     width: 300px;
     height: 126px;
@@ -140,7 +126,6 @@ th {
     width: 50px;
 }
 
-/* 広告 */
 .ad-container {
     position: fixed;
     bottom: 20px;
