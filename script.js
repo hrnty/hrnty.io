@@ -191,33 +191,36 @@
             ];
 
             // 結果を表形式で表示 (ここを toFixed(2) -> toFixed(5) に変更)
-            resultContainer.innerHTML = `
-                <h3>Results</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>DPI</th>
-                            <th>360°(cm)</th>
-                            <th>180°(cm)</th>
-                            <th>Converted Sensitivity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
-                            <tr>
-                                <td>${currentDPI}</td>
-                                <td>${distance360.toFixed(5)}</td>
-                                <td>${distance180.toFixed(5)}</td>
-                                <td>${sensitivity2.toFixed(5)}</td>
-                                <td>
-                                    <button onclick="copyToClipboard('${sensitivity2.toFixed(5)}', this)">Copy</button>
-                                </td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
+resultContainer.innerHTML = `
+    <h3>Results</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>DPI</th>
+                <th>360°(cm)</th>
+                <th>180°(cm)</th>
+                <th>Converted Sensitivity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
+                <tr>
+                    <td>${currentDPI}</td>
+                    <!-- 360°(cm)・180°(cm)はそのまま小数点以下二桁表示 -->
+                    <td>${distance360.toFixed(2)}</td>
+                    <td>${distance180.toFixed(2)}</td>
+                    <!-- Converted Sensitivityのみ小数点以下五桁表示 -->
+                    <td>${sensitivity2.toFixed(5)}</td>
+                    <td>
+                        <button onclick="copyToClipboard('${sensitivity2.toFixed(5)}', this)">Copy</button>
+                    </td>
+                </tr>
+            `).join('')}
+        </tbody>
+    </table>
+`;
+
         }
 
         function copyToClipboard(text, buttonElement) {
