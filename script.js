@@ -1,6 +1,5 @@
     <!-- 外部JavaScriptファイル -->
     <script>
-        // ゲームごとのYaw値
        // ゲームごとのYaw値
 const yawValues = {
     apex: 0.022,
