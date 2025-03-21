@@ -83,9 +83,9 @@ function calculateSensitivity() {
                 ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
                     <tr>
                         <td>${currentDPI}</td>
-                        <td>${distance360.toFixed(2)}</td>
-                        <td>${distance180.toFixed(2)}</td>
-                        <td>${sensitivity2.toFixed(2)}</td>
+                        <td>${distance360.toFixed(5)}</td>
+                        <td>${distance180.toFixed(5)}</td>
+                        <td>${sensitivity2.toFixed(5)}</td>
                         <td>
                             <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">Copy</button>
                         </td>
