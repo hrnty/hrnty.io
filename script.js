@@ -1,4 +1,5 @@
- ﻿// ゲームごとのYaw値
+
+﻿// ゲームごとのYaw値
 const yawValues = {
     apex: 0.022,
     BattleBitRemastered: 0.00050,
