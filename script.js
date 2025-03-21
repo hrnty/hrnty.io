@@ -1,6 +1,4 @@
-    <!-- 外部JavaScriptファイル -->
-    <script>
-       // ゲームごとのYaw値
+ ﻿// ゲームごとのYaw値
 const yawValues = {
     apex: 0.022,
     BattleBitRemastered: 0.00050,
@@ -81,12 +79,11 @@ function calculateSensitivity() {
                 ${results.map(({ currentDPI, distance360, distance180, sensitivity2 }) => `
                     <tr>
                         <td>${currentDPI}</td>
-                        <td>${distance360.toFixed(2)}</td>
-                        <td>${distance180.toFixed(2)}</td>
-                        <!-- Converted Sensitivityのみ小数点以下5桁表示 -->
+                        <td>${distance360.toFixed(5)}</td>
+                        <td>${distance180.toFixed(5)}</td>
                         <td>${sensitivity2.toFixed(5)}</td>
                         <td>
-                            <button onclick="copyToClipboard('${sensitivity2.toFixed(5)}', this)">Copy</button>
+                            <button onclick="copyToClipboard('${sensitivity2.toFixed(2)}', this)">Copy</button>
                         </td>
                     </tr>
                 `).join('')}
@@ -109,4 +106,3 @@ dpiInput.addEventListener('input', calculateSensitivity);
 sensitivity1Input.addEventListener('input', calculateSensitivity);
 game1Select.addEventListener('change', calculateSensitivity);
 game2Select.addEventListener('change', calculateSensitivity);
-
