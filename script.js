@@ -22,6 +22,7 @@ const yawValues = {
     MarvelRivals: 0.0175, 
     valorant: 0.07,
     overwatch: 0.0066,
+    7 Days to Die:　0.25、
 };
 
 // 入力項目の参照
