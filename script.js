@@ -15,14 +15,16 @@ const yawValues = {
     CallofDutyModernWarfareII: 0.006594,
     CallofDutyVanguard: 0.006594,
     CallofDutyWarzone: 0.006594,
+    FragPunk: 0.0555;
     Fortnite: 0.5715,
     GTA5: 0.022,
     HaloInfinite: .02062,
-    XDefiant: 0.001782,
+    Left4Dead 1 & 2: 0.022,
     MarvelRivals: 0.0175, 
     valorant: 0.07,
     overwatch: 0.0066,
-    7DaystoDie:　0.25、
+    XDefiant: 0.001782,
+    7DaystoDie: 0.25,
 };
 
 // 入力項目の参照
