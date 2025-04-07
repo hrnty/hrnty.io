@@ -17,7 +17,7 @@ const yawValues = {
     CallofDutyWarzone: 0.006594,
     Cyberpunk 2077: 0.01, 
     Deadlock: 0.04405,
-    DeltaForce:0.01,
+    DeltaForce: 0.01,
     Destiny 2: 0.0066,
     EscapefromTarkov: 0.1249,
     FragPunk: 0.0555,
