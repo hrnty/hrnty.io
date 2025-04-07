@@ -24,6 +24,7 @@ const yawValues = {
     Fortnite: 0.5715,
     GTA5: 0.022,
     HaloInfinite: 0.02062,
+    Krunker: 0.1375,
     MarvelRivals: 0.0175, 
     osu: 0.07958,
     valorant: 0.07,
