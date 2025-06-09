@@ -1,6 +1,6 @@
 // script.js
 
-// ゲームごとのYaw値（キー名がアイコン画像ファイル名と一致）
+// 各ゲームのYaw値（キー名がアイコン画像ファイル名と一致）
 const yawValues = {
   apex: 0.022,
   BattleBitRemastered: 0.00050,
@@ -49,50 +49,54 @@ const resultContainer = document.getElementById('result');
 let selectedGame1 = null;
 let selectedGame2 = null;
 
-// ドロップダウン初期化
-function initCustomSelect(id, onChange) {
-  const select   = document.getElementById(id);
-  const selected = select.querySelector('.selected-item');
-  const options  = select.querySelector('.options');
-  const label    = selected.querySelector('.label');
-  const icon     = selected.querySelector('.icon');
-
-  selected.addEventListener('click', () => {
+/**
+ * ドロップダウンの開閉トグル処理
+ */
+function initCustomSelect(id) {
+  const select  = document.getElementById(id);
+  const trigger = select.querySelector('.selected-item');
+  trigger.addEventListener('click', () => {
     select.classList.toggle('open');
-  });
-
-  options.addEventListener('click', e => {
-    const li = e.target.closest('li');
-    if (!li) return;
-    const value   = li.dataset.value;
-    const iconSrc = `images/${Value}.jpg`;
-    label.textContent = li.querySelector('.label').textContent;
-    icon.src          = iconSrc;
-    select.classList.remove('open');
-    onChange(value);
-  });
-
-  document.addEventListener('click', e => {
-    if (!select.contains(e.target)) {
-      select.classList.remove('open');
-    }
   });
 }
 
-// 選択肢生成
-function populateOptions(id) {
+/**
+ * 選択肢を動的生成し、各 li にクリックイベントを登録
+ */
+function populateOptions(id, onChange) {
   const select  = document.getElementById(id);
   const options = select.querySelector('.options');
   options.innerHTML = '';
+
   Object.keys(yawValues).forEach(key => {
     const li = document.createElement('li');
     li.dataset.value = key;
     li.innerHTML     = `<img src="images/${key}.jpg" class="icon"><span class="label">${key}</span>`;
+
+    // li 全体をクリック可能にして選択処理
+    li.addEventListener('click', () => {
+      const labelEl = select.querySelector('.selected-item .label');
+      const iconEl  = select.querySelector('.selected-item .icon');
+
+      // 選択済み表示を更新
+      labelEl.textContent = key;
+      iconEl.src          = `images/${key}.jpg`;
+      iconEl.alt          = `${key} icon`;
+
+      // ドロップダウンを閉じる
+      select.classList.remove('open');
+
+      // コールバック（感度計算など）を実行
+      onChange(key);
+    });
+
     options.appendChild(li);
   });
 }
 
-// 感度計算
+/**
+ * 感度計算ロジック
+ */
 function calculateSensitivity() {
   const dpi   = parseFloat(dpiInput.value);
   const sens1 = parseFloat(sensInput.value);
@@ -109,10 +113,10 @@ function calculateSensitivity() {
   const results = dpis.map(d => {
     const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
     return {
-      dpi:   d,
-      sens:  sens2.toFixed(2),
-      d360:  distance360.toFixed(2),
-      d180:  (distance360 / 2).toFixed(2)
+      dpi:  d,
+      sens: sens2.toFixed(2),
+      d360: distance360.toFixed(2),
+      d180: (distance360 / 2).toFixed(2)
     };
   });
 
@@ -132,16 +136,30 @@ function calculateSensitivity() {
   resultContainer.innerHTML = html;
 }
 
-// コピー
+/**
+ * クリップボードへコピー
+ */
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
-  ['game1-select', 'game2-select'].forEach(id => populateOptions(id));
-  initCustomSelect('game1-select', v => { selectedGame1 = v; calculateSensitivity(); });
-  initCustomSelect('game2-select', v => { selectedGame2 = v; calculateSensitivity(); });
+  // 選択肢生成とイベントバインド
+  populateOptions('game1-select', value => {
+    selectedGame1 = value;
+    calculateSensitivity();
+  });
+  populateOptions('game2-select', value => {
+    selectedGame2 = value;
+    calculateSensitivity();
+  });
+
+  // ドロップダウンの開閉のみを担当
+  initCustomSelect('game1-select');
+  initCustomSelect('game2-select');
+
+  // 入力欄の変更で再計算
   dpiInput.addEventListener('input', calculateSensitivity);
   sensInput.addEventListener('input', calculateSensitivity);
 });
