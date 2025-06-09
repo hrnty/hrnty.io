@@ -58,10 +58,14 @@ h1 {
   cursor: pointer;
 }
 
-.custom-select .selected-item .icon {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;  /* ボックス内に全体を収める */
+/* アイコン画像：枠内に収まりつつアスペクト比維持 */
+.custom-select .selected-item .icon,
+.custom-select .options li .icon {
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   margin-right: 8px;
 }
 
@@ -96,13 +100,6 @@ h1 {
 
 .custom-select .options li:hover {
   background: #f0f0f0;
-}
-
-.custom-select .options li .icon {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;  /* ボックス内に全体を収める */
-  margin-right: 8px;
 }
 
 /* 感度結果テーブル */
@@ -154,11 +151,14 @@ h1 {
   background-color: #f0f0f0;
 }
 
+/* デバイステーブル内画像：枠内に収まりつつアスペクト比維持 */
 .devices-table img.product-image,
 .devices-table img.purchase-image {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;  /* 縦横比を保ちつつ枠内に全体を収める */
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
