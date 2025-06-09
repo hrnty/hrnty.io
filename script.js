@@ -1,3 +1,5 @@
+﻿// ゲームごとのYaw値
+
 const yawValues = {
 
     apex: 0.022,
