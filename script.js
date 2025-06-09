@@ -65,7 +65,7 @@ function initCustomSelect(id, onChange) {
     const li = e.target.closest('li');
     if (!li) return;
     const value   = li.dataset.value;
-    const iconSrc = li.dataset.icon;
+    const iconSrc = `images/${value}.jpg`;
     label.textContent = li.querySelector('.label').textContent;
     icon.src          = iconSrc;
     select.classList.remove('open');
@@ -87,8 +87,7 @@ function populateOptions(id) {
   Object.keys(yawValues).forEach(key => {
     const li = document.createElement('li');
     li.dataset.value = key;
-    li.dataset.icon  = `images/${key}.png`;
-    li.innerHTML     = `<img src="images/${key}.png" class="icon"><span class="label">${key}</span>`;
+    li.innerHTML     = `<img src="images/${key}.jpg" class="icon"><span class="label">${key}</span>`;
     options.appendChild(li);
   });
 }
