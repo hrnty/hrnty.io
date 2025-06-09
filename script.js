@@ -2,46 +2,47 @@
 
 // ゲームごとのYaw値（キー名がアイコン画像ファイル名と一致）
 const yawValues = {
-    apex: 0.022,
-    BattleBitRemastered: 0.00050,
-    Battlefield2042: 0.00275,
-    Battlefield1: 0.0056,
-    Battlefield4: 0.0056,
-    Battlefieldv: 0.0056,
-    CounterStrike2: 0.022,
-    CallofDutyBO3: 0.02108,
-    CallofDutyBO4: 0.006594,
-    CallofDutyBO6: 0.006598,
-    CallofDutyBOCW: 0.006594,
-    CallofDutyModernWarfareII: 0.006594,
-    CallofDutyVanguard: 0.006594,
-    CallofDutyWarzone: 0.006594,
-    Cyberpunk2077: 0.01,
-    Deadlock: 0.04405,
-    DeltaForce: 0.01,
-    Destiny2: 0.0066,
-    EscapefromTarkov: 0.1249,
-    FragPunk: 0.0555,
-    Fortnite: 0.5715,
-    GTA5: 0.022,
-    HaloInfinite: 0.02062,
-    Krunker: 0.1375,
-    MarvelRivals: 0.0175,
-    osu: 0.07958,
-    valorant: 0.07,
-    overwatch2: 0.0066,
-    Paladins: 0.009155,
-    PUBG: 2.22222,
-    StarWarsBattlefront2: 1.84,
-    Strinova: 0.0138888,
-    TeamFortress2: 0.022,
-    THEFINALS: 0.000980,
-    RainbowSixSiege: 0.00572989,
-    XDefiant: 0.001782
+  apex: 0.022,
+  BattleBitRemastered: 0.00050,
+  Battlefield2042: 0.00275,
+  Battlefield1: 0.0056,
+  Battlefield4: 0.0056,
+  Battlefieldv: 0.0056,
+  CounterStrike2: 0.022,
+  CallofDutyBO3: 0.02108,
+  CallofDutyBO4: 0.006594,
+  CallofDutyBO6: 0.006598,
+  CallofDutyBOCW: 0.006594,
+  CallofDutyModernWarfareII: 0.006594,
+  CallofDutyVanguard: 0.006594,
+  CallofDutyWarzone: 0.006594,
+  Cyberpunk2077: 0.01,
+  Deadlock: 0.04405,
+  DeltaForce: 0.01,
+  Destiny2: 0.0066,
+  EscapefromTarkov: 0.1249,
+  FragPunk: 0.0555,
+  Fortnite: 0.5715,
+  GTA5: 0.022,
+  HaloInfinite: 0.02062,
+  Krunker: 0.1375,
+  MarvelRivals: 0.0175,
+  osu: 0.07958,
+  valorant: 0.07,
+  overwatch2: 0.0066,
+  Paladins: 0.009155,
+  PUBG: 2.22222,
+  StarWarsBattlefront2: 1.84,
+  Strinova: 0.0138888,
+  TeamFortress2: 0.022,
+  THEFINALS: 0.000980,
+  RainbowSixSiege: 0.00572989,
+  XDefiant: 0.001782
 };
 
 // 要素参照
 const dpiInput        = document.getElementById('dpi');
+const sensInput       = document.getElementById('sensitivity1');
 const resultContainer = document.getElementById('result');
 
 // 選択値保持
@@ -56,12 +57,10 @@ function initCustomSelect(id, onChange) {
   const label    = selected.querySelector('.label');
   const icon     = selected.querySelector('.icon');
 
-  // 開閉トグル
   selected.addEventListener('click', () => {
     select.classList.toggle('open');
   });
 
-  // li 全体をクリック領域にする
   options.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li) return;
@@ -73,7 +72,6 @@ function initCustomSelect(id, onChange) {
     onChange(value);
   });
 
-  // 外部クリックで閉じる
   document.addEventListener('click', e => {
     if (!select.contains(e.target)) {
       select.classList.remove('open');
@@ -81,7 +79,7 @@ function initCustomSelect(id, onChange) {
   });
 }
 
-// 選択肢を動的生成
+// 選択肢生成
 function populateOptions(id) {
   const select  = document.getElementById(id);
   const options = select.querySelector('.options');
@@ -97,17 +95,23 @@ function populateOptions(id) {
 
 // 感度計算
 function calculateSensitivity() {
-  const dpi = parseFloat(dpiInput.value);
-  if (!dpi || !selectedGame1 || !selectedGame2) return;
+  const dpi   = parseFloat(dpiInput.value);
+  const sens1 = parseFloat(sensInput.value);
+  if (!dpi || !sens1 || !selectedGame1 || !selectedGame2) return;
 
   const yaw1 = yawValues[selectedGame1];
   const yaw2 = yawValues[selectedGame2];
-  const distance360 = (360 * 2.54) / (dpi * yaw1);
-  const results = [400, 800, 1600, dpi].map(d => {
-    const sens = (360 * 2.54) / (d * yaw2 * distance360);
+
+  // 360°移動距離(cm)
+  const distance360 = (360 * 2.54) / (dpi * yaw1 * sens1);
+
+  // 各DPIでの変換感度
+  const dpis = [400, 800, 1600, dpi];
+  const results = dpis.map(d => {
+    const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
     return {
       dpi:   d,
-      sens:  sens.toFixed(2),
+      sens:  sens2.toFixed(2),
       d360:  distance360.toFixed(2),
       d180:  (distance360 / 2).toFixed(2)
     };
@@ -115,7 +119,7 @@ function calculateSensitivity() {
 
   // 結果表示
   let html = `<table>
-    <tr><th>DPI</th><th>360°/cm</th><th>180°/cm</th><th>感度</th><th>Copy</th></tr>`;
+    <tr><th>DPI</th><th>360°/cm</th><th>180°/cm</th><th>変換感度</th><th>Copy</th></tr>`;
   results.forEach(r => {
     html += `<tr>
       <td>${r.dpi}</td>
@@ -129,7 +133,7 @@ function calculateSensitivity() {
   resultContainer.innerHTML = html;
 }
 
-// クリップボードコピー
+// コピー
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text);
 }
@@ -140,4 +144,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomSelect('game1-select', v => { selectedGame1 = v; calculateSensitivity(); });
   initCustomSelect('game2-select', v => { selectedGame2 = v; calculateSensitivity(); });
   dpiInput.addEventListener('input', calculateSensitivity);
+  sensInput.addEventListener('input', calculateSensitivity);
 });
