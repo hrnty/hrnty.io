@@ -1,7 +1,6 @@
 // script.js
 
-// 各ゲームのYaw値（キー名がアイコン画像ファイル名と一致）
-// :contentReference[oaicite:0]{index=0}
+// ゲームごとのYaw値（キー名がアイコン画像ファイル名と一致）
 const yawValues = {
     apex: 0.022,
     BattleBitRemastered: 0.00050,
@@ -39,10 +38,11 @@ const yawValues = {
     THEFINALS: 0.000980,
     RainbowSixSiege: 0.00572989,
     XDefiant: 0.001782
-};
+};  
+// :contentReference[oaicite:2]{index=2}
 
 // 要素参照
-const dpiInput       = document.getElementById('dpi');
+const dpiInput        = document.getElementById('dpi');
 const resultContainer = document.getElementById('result');
 
 // 選択値保持
@@ -62,16 +62,16 @@ function initCustomSelect(id, onChange) {
     select.classList.toggle('open');
   });
 
-  // 選択肢クリック時
-  options.querySelectorAll('li').forEach(li => {
-    li.addEventListener('click', () => {
-      const value   = li.dataset.value;
-      const iconSrc = li.dataset.icon;
-      label.textContent = li.querySelector('.label').textContent;
-      icon.src          = iconSrc;
-      select.classList.remove('open');
-      onChange(value);
-    });
+  // アイコンもラベルも含めた li 全体をクリック領域に
+  options.addEventListener('click', e => {
+    const li = e.target.closest('li');
+    if (!li) return;
+    const value   = li.dataset.value;
+    const iconSrc = li.dataset.icon;
+    label.textContent = li.querySelector('.label').textContent;
+    icon.src          = iconSrc;
+    select.classList.remove('open');
+    onChange(value);
   });
 
   // 外部クリックで閉じる
@@ -82,7 +82,7 @@ function initCustomSelect(id, onChange) {
   });
 }
 
-// ドロップダウンに選択肢を動的生成
+// 選択肢を動的生成
 function populateOptions(id) {
   const select  = document.getElementById(id);
   const options = select.querySelector('.options');
