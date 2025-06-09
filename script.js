@@ -38,8 +38,7 @@ const yawValues = {
     THEFINALS: 0.000980,
     RainbowSixSiege: 0.00572989,
     XDefiant: 0.001782
-};  
-// :contentReference[oaicite:2]{index=2}
+};
 
 // 要素参照
 const dpiInput        = document.getElementById('dpi');
@@ -62,7 +61,7 @@ function initCustomSelect(id, onChange) {
     select.classList.toggle('open');
   });
 
-  // アイコンもラベルも含めた li 全体をクリック領域に
+  // li 全体をクリック領域にする
   options.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li) return;
