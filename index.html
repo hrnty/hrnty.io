@@ -55,18 +55,18 @@
                     <tr>
                         <td class="device-name">ゲーミングマウス</td>
                         <td>
-                            <img src="https://via.placeholder.com/200x80?text=Mouse+Image" alt="ゲーミングマウス" class="product-image">
+                            <img src="path/to/your/mouse_image.png" alt="ゲーミングマウス" class="product-image">
                             <br>製品A
                         </td>
-                        <td><a href="#"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
+                        <td><a href="ここにマウスのAmazonなどのURLを入力" target="_blank"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
                     </tr>
                     <tr>
                         <td class="device-name">ゲーミングキーボード</td>
                         <td>
-                            <img src="https://via.placeholder.com/200x80?text=Keyboard+Image" alt="ゲーミングキーボード" class="product-image">
+                            <img src="path/to/your/keyboard_image.png" alt="ゲーミングキーボード" class="product-image">
                             <br>製品B
                         </td>
-                        <td><a href="#"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
+                        <td><a href="ここにキーボードのAmazonなどのURLを入力" target="_blank"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -149,14 +149,20 @@
             } else {
                 iconElement.style.display = 'none'; // ゲームが選択されていない場合は非表示
             }
+            // ゲームが変更されたら感度を再計算
+            calculateSensitivity();
         }
 
         // オプションの初期生成
         populateGameOptions();
 
         // 初期アイコンの更新（デフォルト値が設定されている場合）
+        // オプションが追加されてから初期値を設定
+        game1Select.value = Object.keys(yawValues)[0]; // 最初のゲームをデフォルトに設定
+        game2Select.value = Object.keys(yawValues)[0]; // 最初のゲームをデフォルトに設定
         updateGameIcon(game1Select, game1Icon);
         updateGameIcon(game2Select, game2Icon);
+
 
         // アイコン更新のためのイベントリスナーを追加
         game1Select.addEventListener('change', () => updateGameIcon(game1Select, game1Icon));
