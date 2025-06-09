@@ -40,13 +40,10 @@ const yawValues = {
   XDefiant: 0.001782
 };
 
-// 要素参照（存在しないときはエラーを投げる）
+// 要素参照
 const dpiInput        = document.getElementById('dpi');
 const sensInput       = document.getElementById('sensitivity1');
 const resultContainer = document.getElementById('result');
-if (!dpiInput || !sensInput || !resultContainer) {
-  console.error('要素の取得に失敗しました。ID を再確認してください。');
-}
 
 // 選択値保持
 let selectedGame1 = null;
@@ -54,20 +51,20 @@ let selectedGame2 = null;
 
 /**
  * カスタムセレクト（開閉＋選択）をまとめて設定
+ * @param {string} id         - select要素のID (e.g. "game1-select")
+ * @param {Function} onChange - 選択時に呼ぶコールバック
  */
 function setupCustomSelect(id, onChange) {
   const select  = document.getElementById(id);
-  if (!select) {
-    console.error(`setupCustomSelect: 要素 #${id} が見つかりません`);
-    return;
-  }
-  const trigger    = select.querySelector('.selected-item');
-  const options    = select.querySelector('.options');
-  const labelEl    = trigger.querySelector('.label');
-  const iconEl     = trigger.querySelector('.icon');
+  const trigger = select.querySelector('.selected-item');
+  const options = select.querySelector('.options');
+  const labelEl = trigger.querySelector('.label');
+  const iconEl  = trigger.querySelector('.icon');
 
   // 開閉トグル
-  trigger.addEventListener('click', () => select.classList.toggle('open'));
+  trigger.addEventListener('click', () => {
+    select.classList.toggle('open');
+  });
 
   // 選択肢を生成
   options.innerHTML = '';
@@ -81,25 +78,29 @@ function setupCustomSelect(id, onChange) {
     options.appendChild(li);
   });
 
-  // 選択処理
+  // 選択処理：どこをクリックしても反応し、選択後に閉じる
   options.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li) return;
     const key = li.dataset.value;
-    selectedGame1 = id === 'game1-select' ? key : selectedGame1;
-    selectedGame2 = id === 'game2-select' ? key : selectedGame2;
 
+    // 選択状態を更新
     labelEl.textContent = key;
     iconEl.src          = `images/${key}.jpg`;
     iconEl.alt          = `${key} icon`;
+
+    // ドロップダウンを閉じる
     select.classList.remove('open');
-    console.log(`選択: ${id} = ${key}`);
+
+    // コールバック実行
     onChange(key);
   });
 
   // 外部クリックで閉じる
   document.addEventListener('click', e => {
-    if (!select.contains(e.target)) select.classList.remove('open');
+    if (!select.contains(e.target)) {
+      select.classList.remove('open');
+    }
   });
 }
 
@@ -109,18 +110,16 @@ function setupCustomSelect(id, onChange) {
 function calculateSensitivity() {
   const dpi   = parseFloat(dpiInput.value);
   const sens1 = parseFloat(sensInput.value);
-  console.log('calculateSensitivity:', { selectedGame1, selectedGame2, dpi, sens1 });
-
-  if (!dpi || !sens1 || !selectedGame1 || !selectedGame2) {
-    console.warn('計算条件が揃っていません');
-    return;
-  }
+  if (!dpi || !sens1 || !selectedGame1 || !selectedGame2) return;
 
   const yaw1 = yawValues[selectedGame1];
   const yaw2 = yawValues[selectedGame2];
-  const distance360 = (360 * 2.54) / (dpi * yaw1 * sens1);
-  const dpis = [400, 800, 1600, dpi];
 
+  // 360°移動距離(cm)
+  const distance360 = (360 * 2.54) / (dpi * yaw1 * sens1);
+
+  // 各DPIでの変換感度
+  const dpis = [400, 800, 1600, dpi];
   const results = dpis.map(d => {
     const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
     return {
@@ -131,6 +130,7 @@ function calculateSensitivity() {
     };
   });
 
+  // 結果テーブル作成
   let html = `<table>
     <tr><th>DPI</th><th>360°/cm</th><th>180°/cm</th><th>変換感度</th><th>Copy</th></tr>`;
   results.forEach(r => {
@@ -150,14 +150,4 @@ function calculateSensitivity() {
 /**
  * クリップボードへコピー
  */
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text);
-}
-
-// 初期化
-document.addEventListener('DOMContentLoaded', () => {
-  setupCustomSelect('game1-select', () => calculateSensitivity());
-  setupCustomSelect('game2-select', () => calculateSensitivity());
-  dpiInput.addEventListener('input', calculateSensitivity);
-  sensInput.addEventListener('input', calculateSensitivity);
-});
+function cop
