@@ -151,6 +151,13 @@ h1 {
   background-color: #f0f0f0;
 }
 
+/* 画像セルを100×100に固定 */
+.devices-table td.image-cell {
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+}
+
 /* デバイステーブル内画像：枠内に収まりつつアスペクト比維持 */
 .devices-table img.product-image,
 .devices-table img.purchase-image {
