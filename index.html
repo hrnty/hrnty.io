@@ -143,8 +143,8 @@
         function updateGameIcon(selectElement, iconElement) {
             const selectedGame = selectElement.value;
             if (selectedGame) {
-                // iconsフォルダから画像を取得するようにパスを修正
-                iconElement.src = `icons/${selectedGame.toLowerCase()}.png`;
+                // imagesフォルダから画像を取得するようにパスを修正
+                iconElement.src = `images/${selectedGame.toLowerCase()}.png`;
                 iconElement.style.display = 'inline-block'; // アイコンを表示
             } else {
                 iconElement.style.display = 'none'; // ゲームが選択されていない場合は非表示
