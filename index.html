@@ -11,10 +11,12 @@
 <body>
   <div class="container">
     <h1>Same Sens Pro</h1>
+
     <div class="input-container">
       <label for="dpi">入力 DPI:</label>
       <input type="number" id="dpi" value="800" min="100" max="10000">
     </div>
+
     <div class="input-container">
       <label>ゲーム１：</label>
       <div class="custom-select" id="game1-select">
@@ -26,6 +28,7 @@
         <ul class="options"></ul>
       </div>
     </div>
+
     <div class="input-container">
       <label>ゲーム２：</label>
       <div class="custom-select" id="game2-select">
@@ -37,7 +40,57 @@
         <ul class="options"></ul>
       </div>
     </div>
+
     <div id="result" class="results-container"></div>
+
+    <h2>Pros Recommended Devices</h2>
+    <table class="devices-table">
+      <thead>
+        <tr>
+          <th>Images</th>
+          <th>Name</th>
+          <th>Purchase Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="product-image" src="images/gpsl.jpg" alt="Logicool G PRO X SUPERLIGHT 2" /></td>
+          <td class="device-name">Logicool G PRO X SUPERLIGHT 2</td>
+          <td>
+            <a href="https://amzn.to/3WRL22q" target="_blank">
+              <img class="purchase-image" src="images/amazon.jpg" alt="Amazon" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><img class="product-image" src="images/vv3pr.jpg" alt="Razer Viper V3 Pro" /></td>
+          <td class="device-name">Razer Viper V3 Pro</td>
+          <td>
+            <a href="https://amzn.to/40QWD33" target="_blank">
+              <img class="purchase-image" src="images/amazon.jpg" alt="Amazon" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><img class="product-image" src="images/artisanzero.jpg" alt="ARTISAN NINJA FX zelo SOFT XL" /></td>
+          <td class="device-name">ARTISAN NINJA FX zelo SOFT XL black</td>
+          <td>
+            <a href="https://amzn.to/4aObAHw" target="_blank">
+              <img class="purchase-image" src="images/amazon.jpg" alt="Amazon" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td><img class="product-image" src="images/lamuz_maya8k.jpg" alt="LAMZU MAYA X 8K" /></td>
+          <td class="device-name">LAMZU MAYA X 8K</td>
+          <td>
+            <a href="https://amzn.to/40RzDkn" target="_blank">
+              <img class="purchase-image" src="images/amazon.jpg" alt="Amazon" />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <script src="script.js"></script>
