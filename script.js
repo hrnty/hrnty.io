@@ -1,5 +1,4 @@
-
-﻿// ゲームごとのYaw値
+// ゲームごとのYaw値
 const yawValues = {
     apex: 0.022,
     BattleBitRemastered: 0.00050,
@@ -15,7 +14,7 @@ const yawValues = {
     CallofDutyModernWarfareII: 0.006594,
     CallofDutyVanguard: 0.006594,
     CallofDutyWarzone: 0.006594,
-    Cyberpunk2077: 0.01, 
+    Cyberpunk2077: 0.01,
     Deadlock: 0.04405,
     DeltaForce: 0.01,
     Destiny2: 0.0066,
@@ -25,7 +24,7 @@ const yawValues = {
     GTA5: 0.022,
     HaloInfinite: 0.02062,
     Krunker: 0.1375,
-    MarvelRivals: 0.0175, 
+    MarvelRivals: 0.0175,
     osu: 0.07958,
     valorant: 0.07,
     overwatch2: 0.0066,
@@ -72,17 +71,14 @@ function calculateSensitivity() {
 
     // 入力DPIおよび固定DPI値で計算
     const results = [
-        calculateForDPI(dpi),   // 入力DPI
-        calculateForDPI(400),   // DPI 400
-        calculateForDPI(800),   // DPI 800
-        calculateForDPI(1600),  // DPI 1600
+        calculateForDPI(dpi),    // 入力DPI
+        calculateForDPI(400),    // DPI 400
+        calculateForDPI(800),    // DPI 800
+        calculateForDPI(1600),   // DPI 1600
     ];
 
     // 結果を表形式で表示
-   // 変更前（例）
-// resultContainer.innerHTML = 'Converted sensitivity: Not yet calculated';
-
- resultContainer.innerHTML = `
+    resultContainer.innerHTML = `
         <h3>Results</h3>
         <table>
             <thead>
@@ -123,9 +119,8 @@ function copyToClipboard(text, buttonElement) {
     });
 }
 // イベントリスナーを登録
+// Note: game1Selectとgame2Selectの変更イベントリスナーはindex.html内のスクリプトに移動しました。
+// calculateSensitivity()の初期呼び出しもindex.html内のスクリプトで行われます。
+// ここでは入力フィールドに対するイベントリスナーのみを残します。
 dpiInput.addEventListener('input', calculateSensitivity);
 sensitivity1Input.addEventListener('input', calculateSensitivity);
-game1Select.addEventListener('change', calculateSensitivity);
-game2Select.addEventListener('change', calculateSensitivity);
-
-
