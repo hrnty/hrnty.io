@@ -61,7 +61,7 @@ h1 {
 .custom-select .selected-item .icon {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit: contain;  /* ボックス内に全体を収める */
   margin-right: 8px;
 }
 
@@ -101,7 +101,7 @@ h1 {
 .custom-select .options li .icon {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit: contain;  /* ボックス内に全体を収める */
   margin-right: 8px;
 }
 
@@ -158,7 +158,7 @@ h1 {
 .devices-table img.purchase-image {
   width: 100px;
   height: 100px;
-  object-fit: contain; /* 縦横比を保ちつつ枠内に全体を収める */
+  object-fit: contain;  /* 縦横比を保ちつつ枠内に全体を収める */
   display: block;
   margin: 0 auto;
 }
