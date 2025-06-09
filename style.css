@@ -24,14 +24,47 @@ body {
     top: 0;
     left: -360px; /* sensitivity コンテナのすぐ左に配置（例：感覚に合わせ調整） */
     width: 300px; /* YouTube紹介欄の幅 */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
 }
 
-    .youtube-intro img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
+.youtube-intro h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.youtube-intro p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.youtube-intro a {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.youtube-intro a:hover {
+    background-color: #cc0000;
+}
+
+.youtube-intro img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 .container {
     max-width: 700px;
@@ -56,14 +89,22 @@ h2 {
     width: 100%;
 }
 
-    .input-container label {
-        display: block;
-        margin-bottom: 5px;
-    }
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ラベル、Select、アイコンが並ぶように調整 */
+.input-container label,
+.input-container select,
+.game-icon {
+    display: inline-block; /* 横並びにする */
+    vertical-align: middle;
+}
 
 input[type="number"], select {
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 50px); /* アイコンのためのスペースを確保するために幅を調整 */
     margin: 10px 0;
     font-size: 16px;
     box-sizing: border-box;
@@ -94,15 +135,15 @@ th {
     border-collapse: collapse;
 }
 
-    .devices-table th, .devices-table td {
-        padding: 15px;
-        text-align: center;
-        border: 1px solid #ddd;
-    }
+.devices-table th, .devices-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
 
-    .devices-table th {
-        background-color: #f0f0f0;
-    }
+.devices-table th {
+    background-color: #f0f0f0;
+}
 
 .device-name {
     font-weight: bold;
@@ -137,46 +178,16 @@ th {
     z-index: 100;
 }
 
-    .ad-container img {
-        width: 200px;
-        height: auto;
-    }
-.youtube-intro {
-    position: absolute;
-    top: 0;
-    left: -360px;
-    width: 300px;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: #333;
+.ad-container img {
+    width: 200px;
+    height: auto;
 }
 
-.youtube-intro h2 {
-    font-size: 1.6em;
-    margin-bottom: 10px;
-    color: #222;
-}
-
-.youtube-intro p {
-    font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.youtube-intro a {
-    display: inline-block;
-    background-color: #ff0000;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.youtube-intro a:hover {
-    background-color: #cc0000;
+/* ゲームアイコンのスタイル */
+.game-icon {
+    width: 30px; /* 必要に応じて調整 */
+    height: 30px; /* 必要に応じて調整 */
+    vertical-align: middle; /* テキストと揃える */
+    margin-left: 10px; /* Selectボックスとアイコンの間のスペース */
+    border-radius: 5px; /* オプション: 少し角を丸くする */
 }
