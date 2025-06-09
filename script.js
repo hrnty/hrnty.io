@@ -41,8 +41,8 @@ const yawValues = {
 // 入力項目の参照
 const dpiInput = document.getElementById('dpi');
 const sensitivity1Input = document.getElementById('sensitivity1');
-const game1Select = document.getElementById('game1');
-const game2Select = document.getElementById('game2');
+const game1Select = document.getElementById('game1'); // script.jsでも参照は必要
+const game2Select = document.getElementById('game2'); // script.jsでも参照は必要
 const resultContainer = document.getElementById('result');
 
 // 計算関数
@@ -119,8 +119,6 @@ function copyToClipboard(text, buttonElement) {
     });
 }
 // イベントリスナーを登録
-// Note: game1Selectとgame2Selectの変更イベントリスナーはindex.html内のスクリプトに移動しました。
-// calculateSensitivity()の初期呼び出しもindex.html内のスクリプトで行われます。
-// ここでは入力フィールドに対するイベントリスナーのみを残します。
+// DPIと感度入力のイベントリスナーのみscript.jsに残す
 dpiInput.addEventListener('input', calculateSensitivity);
 sensitivity1Input.addEventListener('input', calculateSensitivity);
