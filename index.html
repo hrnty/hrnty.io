@@ -1,175 +1,163 @@
+
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>感度変換ツール</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="google-site-verification" content="GdE0WykVT69CrztMIYgLZ4q6xL0WCjBXyEoG6tCoupw" />
+    <meta name="description" content="Convert your mouse sensitivity to be able to AIM the same way in other games, it presents devices used by professionals">
+    <meta name="keywords" content="mouse sensitivity converter, sens converter, convert mouse sens, calculate mouse sens, valorant , Overwatch2 ,counter strike , valorant sens converter, cs2, fortnite, apex legends, ゲーム, 感度, 振り向き, 計算, RainbowSixSiege ,Deadlock , FragPunk ,PUBG , fortnte, THEFINALS ,XDefiant , delta force , aimlab , osu! , pro , Battlefield1 , call of duty ,   ">
+    <meta property="og:description" content="Convert your mouse sensitivity to be able to AIM the same way in other games, it presents devices used by professionals">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <title>Same Sens Pro</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TPYDBEL84S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TPYDBEL84S');
+    </script>
 </head>
 <body>
-    <div class="container-wrapper">
-        <div class="youtube-intro">
-            <h2>YouTubeチャンネル紹介</h2>
-            <p>ゲームのヒントなど、私のYouTubeチャンネルもご覧ください！</p>
-            <a href="あなたの_YOUTUBE_チャンネルのリンク" target="_blank">チャンネルを訪問</a>
-        </div>
         <div class="container">
-            <h2>感度変換ツール</h2>
+            <h2>FPS Sensitivity Converter Calculator</h2>
 
             <div class="input-container">
-                <label for="dpi">DPI:</label>
-                <input type="number" id="dpi" value="800">
+                <label for="dpi">DPI（pls entry/要入力）:</label>
+                <input type="number" id="dpi" placeholder="DPIを入力" step="100" />
             </div>
 
             <div class="input-container">
-                <label for="sensitivity1">現在のゲーム感度:</label>
-                <input type="number" id="sensitivity1" value="1.0" step="0.001">
-            </div>
-
-            <div class="input-container">
-                <label for="game1">現在のゲーム:</label>
+                <label for="game1">Choose game1:</label>
                 <select id="game1">
-                    </select>
-                <img id="game1-icon" class="game-icon" src="" alt="ゲーム1アイコン" style="display: none;">
+                    <option value="apex">APEX</option>
+                    <option value="BattleBitRemastered">BattleBitRemastered</option>
+                    <option value="Battlefield1">Battlefield 1</option>
+                    <option value="Battlefield4">Battlefield 4</option>
+                    <option value="Battlefield2042">Battlefield 2024</option>
+                    <option value="Battlefieldv">Battlefield V</option>
+                    <option value="CounterStrike2">Counter-Strike2</option>
+                    <option value="CallofDutyBO3">CallofDuty BO3</option>
+                    <option value="CallofDutyBO4">CallofDuty BO4</option>
+                    <option value="CallofDutyBO6">CallofDuty BO6</option>
+                    <option value="CallofDutyBOCW">CallofDuty BOCW</option>
+                    <option value="CallofDutyModernWarfareII">CallofDuty ModernWarfareII</option>
+                    <option value="CallofDutyVanguard">CallofDuty Vanguard</option>
+                    <option value="CallofDutyWarzone">CallofDuty Warzone</option>
+                    <option value="Cyberpunk2077">Cyberpunk 2077</option>
+                    <option value="Deadlock">Deadlock</option>
+                    <option value="DeltaForce">Delta Force</option>
+                    <option value="Destiny2">Destiny 2</option>
+                    <option value="EscapefromTarkov">Escape from Tarkov</option>
+                    <option value="FragPunk">FragPunk</option>
+                    <option value="Fortnite">Fortnite</option>
+                    <option value="GTA5">GTA5</option>
+                    <option value="HaloInfinite">Halo Infinite</option>
+                    <option value="Krunker">Krunker</option>
+                    <option value="overwatch2">OVERWATCH2</option>
+                    <option value="osu">osu!</option>
+                    <option value="Paladins">Paladins</option>
+                    <option value="PUBG">PUBG</option>
+                    <option value="StarWarsBattlefront2">StarWars Battlefront 2/option>
+                    <option value="Strinova">Strinova</option>
+                    <option value="TeamFortress2">Team Fortress 2</option>
+                    <option value="THEFINALS">THE FINALS</option>
+                    <option value="valorant">VALORANT</option>
+                    <option value="RainbowSixSiege">Rainbow Six Siege</option>
+                    <option value="XDefiant">XDefiant</option>
+                </select>
             </div>
 
             <div class="input-container">
-                <label for="game2">変換先のゲーム:</label>
-                <select id="game2">
-                    </select>
-                <img id="game2-icon" class="game-icon" src="" alt="ゲーム2アイコン" style="display: none;">
+                <label for="sensitivity1">Sens（game1）:</label>
+                <input type="number" id="sensitivity1" placeholder="Sensitivityを入力" step="0.01" />
             </div>
 
-            <div id="result" class="results-container">
-                </div>
+            <div class="input-container">
+                <label for="game2">Choose game2:</label>
+                <select id="game2">
+                    <option value="apex">APEX</option>
+                    <option value="BattleBitRemastered">BattleBitRemastered</option>
+                    <option value="Battlefield1">Battlefield 1</option>
+                    <option value="Battlefield4">Battlefield 4</option>
+                    <option value="Battlefield2042">Battlefield 2024</option>
+                    <option value="Battlefieldv">Battlefield V</option>
+                    <option value="CounterStrike2">Counter-Strike2</option>
+                    <option value="CallofDutyBO3">CallofDuty BO3</option>
+                    <option value="CallofDutyBO4">CallofDuty BO4</option>
+                    <option value="CallofDutyBO6">CallofDuty BO6</option>
+                    <option value="CallofDutyBOCW">CallofDuty BOCW</option>
+                    <option value="CallofDutyModernWarfareII">CallofDuty ModernWarfareII</option>
+                    <option value="CallofDutyVanguard">CallofDuty Vanguard</option>
+                    <option value="CallofDutyWarzone">CallofDuty Warzone</option>
+                    <option value="Cyberpunk2077">Cyberpunk 2077</option>
+                    <option value="Deadlock">Deadlock</option>
+                    <option value="DeltaForce">Delta Force</option>
+                    <option value="Destiny2">Destiny 2</option>
+                    <option value="EscapefromTarkov">Escape from Tarkov</option>
+                    <option value="FragPunk">FragPunk</option>
+                    <option value="Fortnite">Fortnite</option>
+                    <option value="GTA5">GTA5</option>
+                    <option value="HaloInfinite">Halo Infinite</option>
+                    <option value="Krunker">Krunker</option>
+                    <option value="overwatch2">OVERWATCH2</option>
+                    <option value="osu">osu!</option>
+                    <option value="Paladins">Paladins</option>
+                    <option value="PUBG">PUBG</option>
+                    <option value="StarWarsBattlefront2">StarWars Battlefront 2/option>
+                    <option value="Strinova">Strinova</option>
+                    <option value="TeamFortress2">Team Fortress 2</option>
+                    <option value="THEFINALS">THE FINALS</option>
+                    <option value="valorant">VALORANT</option>
+                    <option value="RainbowSixSiege">Rainbow Six Siege</option>
+                    <option value="XDefiant">XDefiant</option>
+                </select>
+            </div>
 
+            <div class="results-container" id="result">
+                Converted sensitivity: Not yet calculated
+            </div>
+
+            <h3>Pros Recommended Devices</h3>
             <table class="devices-table">
                 <thead>
                     <tr>
-                        <th>デバイスの種類</th>
-                        <th>推奨製品</th>
-                        <th>購入リンク</th>
+                        <th>Images</th>
+                        <th>Name</th>
+                        <th>Purchase Links</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="device-name">ゲーミングマウス</td>
-                        <td>
-                            <img src="path/to/your/mouse_image.png" alt="ゲーミングマウス" class="product-image">
-                            <br>製品A
-                        </td>
-                        <td><a href="ここにマウスのAmazonなどのURLを入力" target="_blank"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
+                        <td><img class="product-image" src="images/gpsl.jpg" alt="device 1" /></td>
+                        <td class="device-name">Logicool G PRO X SUPERLIGHT 2</td>
+                        <td><a href="https://amzn.to/3WRL22q" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
                     </tr>
                     <tr>
-                        <td class="device-name">ゲーミングキーボード</td>
-                        <td>
-                            <img src="path/to/your/keyboard_image.png" alt="ゲーミングキーボード" class="product-image">
-                            <br>製品B
-                        </td>
-                        <td><a href="ここにキーボードのAmazonなどのURLを入力" target="_blank"><img src="https://via.placeholder.com/50x20?text=Buy" alt="購入" class="purchase-image"></a></td>
+                        <td><img class="product-image" src="images/vv3pr.jpg" alt="device 2" /></td>
+                        <td class="device-name">Razer Viper V3 Pro</td>
+                        <td><a href="https://amzn.to/40QWD33" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="product-image" src="images/artisanzero.jpg" alt="device 3" /></td>
+                        <td class="device-name">ARTISAN NINJA FX zelo SOFT XL black</td>
+                        <td><a href="https://amzn.to/4aObAHw" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="product-image" src="images/lamuz maya8k.jpg" alt="device 4" /></td>
+                        <td class="device-name">LAMZU MAYA X 8K</td>
+                        <td><a href="https://amzn.to/40RzDkn" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
                     </tr>
                 </tbody>
             </table>
-
-            <div class="ad-container">
-                <img src="https://via.placeholder.com/200x100?text=広告はこちら" alt="広告">
-            </div>
         </div>
     </div>
 
+   
+    <!-- 外部JavaScriptファイル -->
     <script src="script.js"></script>
-    <script>
-        // ゲームごとのYaw値
-        const yawValues = {
-            apex: 0.022,
-            BattleBitRemastered: 0.00050,
-            Battlefield2042: 0.00275,
-            Battlefield1: 0.0056,
-            Battlefield4: 0.0056,
-            Battlefieldv: 0.0056,
-            CounterStrike2: 0.022,
-            CallofDutyBO3: 0.02108,
-            CallofDutyBO4: 0.006594,
-            CallofDutyBO6: 0.006598,
-            CallofDutyBOCW: 0.006594,
-            CallofDutyModernWarfareII: 0.006594,
-            CallofDutyVanguard: 0.006594,
-            CallofDutyWarzone: 0.006594,
-            Cyberpunk2077: 0.01,
-            Deadlock: 0.04405,
-            DeltaForce: 0.01,
-            Destiny2: 0.0066,
-            EscapefromTarkov: 0.1249,
-            FragPunk: 0.0555,
-            Fortnite: 0.5715,
-            GTA5: 0.022,
-            HaloInfinite: 0.02062,
-            Krunker: 0.1375,
-            MarvelRivals: 0.0175,
-            osu: 0.07958,
-            valorant: 0.07,
-            overwatch2: 0.0066,
-            Paladins: 0.009155,
-            PUBG: 2.22222,
-            StarWarsBattlefront2: 1.84,
-            Strinova: 0.0138888,
-            TeamFortress2: 0.022,
-            THEFINALS: 0.000980,
-            RainbowSixSiege: 0.00572989,
-            XDefiant: 0.001782,
-        };
-
-        const game1Select = document.getElementById('game1');
-        const game2Select = document.getElementById('game2');
-        const game1Icon = document.getElementById('game1-icon');
-        const game2Icon = document.getElementById('game2-icon');
-
-        // セレクトボックスのオプションを生成する関数
-        function populateGameOptions() {
-            for (const game in yawValues) {
-                const option1 = document.createElement('option');
-                option1.value = game;
-                option1.textContent = game.charAt(0).toUpperCase() + game.slice(1); // 頭文字を大文字にする
-                game1Select.appendChild(option1);
-
-                const option2 = document.createElement('option');
-                option2.value = game;
-                option2.textContent = game.charAt(0).toUpperCase() + game.slice(1); // 頭文字を大文字にする
-                game2Select.appendChild(option2);
-            }
-        }
-
-        // ゲームアイコンを更新する関数
-        function updateGameIcon(selectElement, iconElement) {
-            const selectedGame = selectElement.value;
-            if (selectedGame) {
-                // imagesフォルダから画像を取得するようにパスを修正
-                iconElement.src = `images/${selectedGame.toLowerCase()}.png`;
-                iconElement.style.display = 'inline-block'; // アイコンを表示
-            } else {
-                iconElement.style.display = 'none'; // ゲームが選択されていない場合は非表示
-            }
-            // ゲームが変更されたら感度を再計算
-            calculateSensitivity();
-        }
-
-        // オプションの初期生成
-        populateGameOptions();
-
-        // 初期アイコンの更新（デフォルト値が設定されている場合）
-        // オプションが追加されてから初期値を設定
-        game1Select.value = Object.keys(yawValues)[0]; // 最初のゲームをデフォルトに設定
-        game2Select.value = Object.keys(yawValues)[0]; // 最初のゲームをデフォルトに設定
-        updateGameIcon(game1Select, game1Icon);
-        updateGameIcon(game2Select, game2Icon);
-
-
-        // アイコン更新のためのイベントリスナーを追加
-        game1Select.addEventListener('change', () => updateGameIcon(game1Select, game1Icon));
-        game2Select.addEventListener('change', () => updateGameIcon(game2Select, game2Icon));
-
-        // ページロード時に感度計算を初期実行
-        calculateSensitivity();
-    </script>
 </body>
 </html>
