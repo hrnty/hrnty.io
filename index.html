@@ -1,163 +1,45 @@
-
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ja">
 <head>
-    <meta name="google-site-verification" content="GdE0WykVT69CrztMIYgLZ4q6xL0WCjBXyEoG6tCoupw" />
-    <meta name="description" content="Convert your mouse sensitivity to be able to AIM the same way in other games, it presents devices used by professionals">
-    <meta name="keywords" content="mouse sensitivity converter, sens converter, convert mouse sens, calculate mouse sens, valorant , Overwatch2 ,counter strike , valorant sens converter, cs2, fortnite, apex legends, ゲーム, 感度, 振り向き, 計算, RainbowSixSiege ,Deadlock , FragPunk ,PUBG , fortnte, THEFINALS ,XDefiant , delta force , aimlab , osu! , pro , Battlefield1 , call of duty ,   ">
-    <meta property="og:description" content="Convert your mouse sensitivity to be able to AIM the same way in other games, it presents devices used by professionals">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta charset="utf-8" />
-    <title>Same Sens Pro</title>
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TPYDBEL84S"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-TPYDBEL84S');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="description" content="Same Sens Pro — ゲーム間感度コンバーター">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Same Sens Pro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div class="container">
-            <h2>FPS Sensitivity Converter Calculator</h2>
-
-            <div class="input-container">
-                <label for="dpi">DPI（pls entry/要入力）:</label>
-                <input type="number" id="dpi" placeholder="DPIを入力" step="100" />
-            </div>
-
-            <div class="input-container">
-                <label for="game1">Choose game1:</label>
-                <select id="game1">
-                    <option value="apex">APEX</option>
-                    <option value="BattleBitRemastered">BattleBitRemastered</option>
-                    <option value="Battlefield1">Battlefield 1</option>
-                    <option value="Battlefield4">Battlefield 4</option>
-                    <option value="Battlefield2042">Battlefield 2024</option>
-                    <option value="Battlefieldv">Battlefield V</option>
-                    <option value="CounterStrike2">Counter-Strike2</option>
-                    <option value="CallofDutyBO3">CallofDuty BO3</option>
-                    <option value="CallofDutyBO4">CallofDuty BO4</option>
-                    <option value="CallofDutyBO6">CallofDuty BO6</option>
-                    <option value="CallofDutyBOCW">CallofDuty BOCW</option>
-                    <option value="CallofDutyModernWarfareII">CallofDuty ModernWarfareII</option>
-                    <option value="CallofDutyVanguard">CallofDuty Vanguard</option>
-                    <option value="CallofDutyWarzone">CallofDuty Warzone</option>
-                    <option value="Cyberpunk2077">Cyberpunk 2077</option>
-                    <option value="Deadlock">Deadlock</option>
-                    <option value="DeltaForce">Delta Force</option>
-                    <option value="Destiny2">Destiny 2</option>
-                    <option value="EscapefromTarkov">Escape from Tarkov</option>
-                    <option value="FragPunk">FragPunk</option>
-                    <option value="Fortnite">Fortnite</option>
-                    <option value="GTA5">GTA5</option>
-                    <option value="HaloInfinite">Halo Infinite</option>
-                    <option value="Krunker">Krunker</option>
-                    <option value="overwatch2">OVERWATCH2</option>
-                    <option value="osu">osu!</option>
-                    <option value="Paladins">Paladins</option>
-                    <option value="PUBG">PUBG</option>
-                    <option value="StarWarsBattlefront2">StarWars Battlefront 2/option>
-                    <option value="Strinova">Strinova</option>
-                    <option value="TeamFortress2">Team Fortress 2</option>
-                    <option value="THEFINALS">THE FINALS</option>
-                    <option value="valorant">VALORANT</option>
-                    <option value="RainbowSixSiege">Rainbow Six Siege</option>
-                    <option value="XDefiant">XDefiant</option>
-                </select>
-            </div>
-
-            <div class="input-container">
-                <label for="sensitivity1">Sens（game1）:</label>
-                <input type="number" id="sensitivity1" placeholder="Sensitivityを入力" step="0.01" />
-            </div>
-
-            <div class="input-container">
-                <label for="game2">Choose game2:</label>
-                <select id="game2">
-                    <option value="apex">APEX</option>
-                    <option value="BattleBitRemastered">BattleBitRemastered</option>
-                    <option value="Battlefield1">Battlefield 1</option>
-                    <option value="Battlefield4">Battlefield 4</option>
-                    <option value="Battlefield2042">Battlefield 2024</option>
-                    <option value="Battlefieldv">Battlefield V</option>
-                    <option value="CounterStrike2">Counter-Strike2</option>
-                    <option value="CallofDutyBO3">CallofDuty BO3</option>
-                    <option value="CallofDutyBO4">CallofDuty BO4</option>
-                    <option value="CallofDutyBO6">CallofDuty BO6</option>
-                    <option value="CallofDutyBOCW">CallofDuty BOCW</option>
-                    <option value="CallofDutyModernWarfareII">CallofDuty ModernWarfareII</option>
-                    <option value="CallofDutyVanguard">CallofDuty Vanguard</option>
-                    <option value="CallofDutyWarzone">CallofDuty Warzone</option>
-                    <option value="Cyberpunk2077">Cyberpunk 2077</option>
-                    <option value="Deadlock">Deadlock</option>
-                    <option value="DeltaForce">Delta Force</option>
-                    <option value="Destiny2">Destiny 2</option>
-                    <option value="EscapefromTarkov">Escape from Tarkov</option>
-                    <option value="FragPunk">FragPunk</option>
-                    <option value="Fortnite">Fortnite</option>
-                    <option value="GTA5">GTA5</option>
-                    <option value="HaloInfinite">Halo Infinite</option>
-                    <option value="Krunker">Krunker</option>
-                    <option value="overwatch2">OVERWATCH2</option>
-                    <option value="osu">osu!</option>
-                    <option value="Paladins">Paladins</option>
-                    <option value="PUBG">PUBG</option>
-                    <option value="StarWarsBattlefront2">StarWars Battlefront 2/option>
-                    <option value="Strinova">Strinova</option>
-                    <option value="TeamFortress2">Team Fortress 2</option>
-                    <option value="THEFINALS">THE FINALS</option>
-                    <option value="valorant">VALORANT</option>
-                    <option value="RainbowSixSiege">Rainbow Six Siege</option>
-                    <option value="XDefiant">XDefiant</option>
-                </select>
-            </div>
-
-            <div class="results-container" id="result">
-                Converted sensitivity: Not yet calculated
-            </div>
-
-            <h3>Pros Recommended Devices</h3>
-            <table class="devices-table">
-                <thead>
-                    <tr>
-                        <th>Images</th>
-                        <th>Name</th>
-                        <th>Purchase Links</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img class="product-image" src="images/gpsl.jpg" alt="device 1" /></td>
-                        <td class="device-name">Logicool G PRO X SUPERLIGHT 2</td>
-                        <td><a href="https://amzn.to/3WRL22q" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
-                    </tr>
-                    <tr>
-                        <td><img class="product-image" src="images/vv3pr.jpg" alt="device 2" /></td>
-                        <td class="device-name">Razer Viper V3 Pro</td>
-                        <td><a href="https://amzn.to/40QWD33" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
-                    </tr>
-                    <tr>
-                        <td><img class="product-image" src="images/artisanzero.jpg" alt="device 3" /></td>
-                        <td class="device-name">ARTISAN NINJA FX zelo SOFT XL black</td>
-                        <td><a href="https://amzn.to/4aObAHw" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
-                    </tr>
-                    <tr>
-                        <td><img class="product-image" src="images/lamuz maya8k.jpg" alt="device 4" /></td>
-                        <td class="device-name">LAMZU MAYA X 8K</td>
-                        <td><a href="https://amzn.to/40RzDkn" target="_blank"><img class="purchase-image" src="images/amazon.jpg" alt="Amazon" /></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <div class="container">
+    <h1>Same Sens Pro</h1>
+    <div class="input-container">
+      <label for="dpi">入力 DPI:</label>
+      <input type="number" id="dpi" value="800" min="100" max="10000">
     </div>
+    <div class="input-container">
+      <label>ゲーム１：</label>
+      <div class="custom-select" id="game1-select">
+        <div class="selected-item">
+          <img src="images/default.png" alt="icon" class="icon">
+          <span class="label">選択してください</span>
+          <span class="arrow">▾</span>
+        </div>
+        <ul class="options"></ul>
+      </div>
+    </div>
+    <div class="input-container">
+      <label>ゲーム２：</label>
+      <div class="custom-select" id="game2-select">
+        <div class="selected-item">
+          <img src="images/default.png" alt="icon" class="icon">
+          <span class="label">選択してください</span>
+          <span class="arrow">▾</span>
+        </div>
+        <ul class="options"></ul>
+      </div>
+    </div>
+    <div id="result" class="results-container"></div>
+  </div>
 
-   
-    <!-- 外部JavaScriptファイル -->
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
