@@ -105,7 +105,7 @@ h1 {
   margin-right: 8px;
 }
 
-/* 結果テーブル */
+/* 感度結果テーブル */
 .results-container table {
   width: 100%;
   border-collapse: collapse;
@@ -158,7 +158,7 @@ h1 {
 .devices-table img.purchase-image {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit: contain; /* 縦横比を保ちつつ枠内に全体を収める */
   display: block;
   margin: 0 auto;
 }
