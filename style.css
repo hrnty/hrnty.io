@@ -1,363 +1,115 @@
+/* style.css */
 body {
-
-    font-family: Arial, sans-serif;
-
-    padding: 20px;
-
-    margin: 0;
-
-    display: flex;
-
-    justify-content: flex-start;
-
-    align-items: flex-start;
-
-    height: 100vh;
-
-    flex-direction: column;
-
-    background-color: #f9f9f9;
-
-    box-sizing: border-box;
-
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
 }
-
-
-
-/* sensitivity コンテナと YouTube 紹介欄をまとめるラッパー */
-
-.container-wrapper {
-
-    position: relative;
-
-    width: fit-content;
-
-    margin: 0 auto; /* 全体を中央に配置 */
-
-}
-
-
-
-/* YouTube紹介欄を sensitivity コンテナの左側に配置 */
-
-.youtube-intro {
-
-    position: absolute;
-
-    top: 0;
-
-    left: -360px; /* sensitivity コンテナのすぐ左に配置（例：感覚に合わせ調整） */
-
-    width: 300px; /* YouTube紹介欄の幅 */
-
-}
-
-
-
-    .youtube-intro img {
-
-        max-width: 100%;
-
-        height: auto;
-
-        display: block;
-
-        margin: 0 auto;
-
-    }
-
-
-
 .container {
-
-    max-width: 700px;
-
-    width: 100%;
-
-    margin: 0 auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    background-color: #fff;
-
-    padding: 40px;
-
-    box-sizing: border-box;
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  max-width: 400px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
-
-
-
-h2 {
-
-    margin-top: 0;
-
-    margin-bottom: 20px;
-
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
 }
-
-
-
 .input-container {
-
-    margin-bottom: 20px;
-
-    width: 100%;
-
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+.input-container label {
+  width: 80px;
+}
+.input-container input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-
-
-    .input-container label {
-
-        display: block;
-
-        margin-bottom: 5px;
-
-    }
-
-
-
-input[type="number"], select {
-
-    padding: 10px;
-
-    width: 100%;
-
-    margin: 10px 0;
-
-    font-size: 16px;
-
-    box-sizing: border-box;
-
+/* カスタムドロップダウン */
+.custom-select {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+.custom-select .selected-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.custom-select .selected-item .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+.custom-select .selected-item .arrow {
+  margin-left: auto;
+}
+.custom-select .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 10;
+}
+.custom-select.open .options {
+  display: block;
+}
+.custom-select .options li {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.custom-select .options li:hover {
+  background: #f0f0f0;
+}
+.custom-select .options li .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
-
-
-.results-container {
-
-    margin: 20px 0;
-
+/* 結果テーブル */
+.results-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
 }
-
-
-
-table {
-
-    border-collapse: collapse;
-
-    width: 100%;
-
+.results-container th,
+.results-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
-
-
-
-th, td {
-
-    border: 1px solid #ccc;
-
-    padding: 8px;
-
-    text-align: left;
-
+.results-container th {
+  background: #f4f4f4;
 }
-
-
-
-th {
-
-    background-color: #f2f2f2;
-
+.results-container button {
+  padding: 4px 8px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
-
-
-.devices-table {
-
-    margin-top: 40px;
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-}
-
-
-
-    .devices-table th, .devices-table td {
-
-        padding: 15px;
-
-        text-align: center;
-
-        border: 1px solid #ddd;
-
-    }
-
-
-
-    .devices-table th {
-
-        background-color: #f0f0f0;
-
-    }
-
-
-
-.device-name {
-
-    font-weight: bold;
-
-}
-
-
-
-.devices-table td {
-
-    width: 300px;
-
-    height: 126px;
-
-    text-align: center;
-
-}
-
-
-
-.devices-table img.product-image {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-    display: block;
-
-    margin: 0 auto;
-
-}
-
-
-
-.devices-table img.purchase-image {
-
-    width: 50px;
-
-}
-
-
-
-.ad-container {
-
-    position: fixed;
-
-    bottom: 20px;
-
-    right: 20px;
-
-    background-color: #fff;
-
-    padding: 10px;
-
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-
-    border-radius: 5px;
-
-    z-index: 100;
-
-}
-
-
-
-    .ad-container img {
-
-        width: 200px;
-
-        height: auto;
-
-    }
-
-.youtube-intro {
-
-    position: absolute;
-
-    top: 0;
-
-    left: -360px;
-
-    width: 300px;
-
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-
-    border-radius: 8px;
-
-    padding: 20px;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-    text-align: center;
-
-    color: #333;
-
-}
-
-
-
-.youtube-intro h2 {
-
-    font-size: 1.6em;
-
-    margin-bottom: 10px;
-
-    color: #222;
-
-}
-
-
-
-.youtube-intro p {
-
-    font-size: 1em;
-
-    line-height: 1.5;
-
-    margin-bottom: 15px;
-
-}
-
-
-
-.youtube-intro a {
-
-    display: inline-block;
-
-    background-color: #ff0000;
-
-    color: #fff;
-
-    padding: 8px 12px;
-
-    border-radius: 4px;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    transition: background-color 0.3s ease;
-
-}
-
-
-
-.youtube-intro a:hover {
-
-    background-color: #cc0000;
-
+.results-container button:hover {
+  background: #0056b3;
 }
