@@ -65,7 +65,7 @@ function initCustomSelect(id, onChange) {
     const li = e.target.closest('li');
     if (!li) return;
     const value   = li.dataset.value;
-    const iconSrc = `images/${yawValues}.jpg`;
+    const iconSrc = `images/${Value}.jpg`;
     label.textContent = li.querySelector('.label').textContent;
     icon.src          = iconSrc;
     select.classList.remove('open');
