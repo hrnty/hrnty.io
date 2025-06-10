@@ -130,7 +130,7 @@ function calculateSensitivity() {
     };
   });
 
-  // 結果テーブル作成
+  // 結果テーブル作成（Copyボタンに this を渡す）
   let html = `<table>
     <tr><th>DPI</th><th>360°/cm</th><th>180°/cm</th><th>変換感度</th><th>Copy</th></tr>`;
   results.forEach(r => {
@@ -139,7 +139,7 @@ function calculateSensitivity() {
       <td>${r.d360}</td>
       <td>${r.d180}</td>
       <td>${r.sens}</td>
-      <td><button onclick="copyToClipboard('${r.sens}')">Copy</button></td>
+      <td><button onclick="copyToClipboard(this, '${r.sens}')">Copy</button></td>
     </tr>`;
   });
   html += `</table>`;
@@ -148,6 +148,31 @@ function calculateSensitivity() {
 }
 
 /**
- * クリップボードへコピー
+ * クリップボードへコピーし、ボタンに「Copied」と表示
+ * @param {HTMLElement} btn - クリックされたボタン要素
+ * @param {string} text     - コピーするテキスト
  */
-function cop
+function copyToClipboard(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(() => {
+      btn.textContent = original;
+    }, 1000);
+  });
+}
+
+// 初期化
+document.addEventListener('DOMContentLoaded', () => {
+  setupCustomSelect('game1-select', value => {
+    selectedGame1 = value;
+    calculateSensitivity();
+  });
+  setupCustomSelect('game2-select', value => {
+    selectedGame2 = value;
+    calculateSensitivity();
+  });
+
+  dpiInput.addEventListener('input', calculateSensitivity);
+  sensInput.addEventListener('input', calculateSensitivity);
+});
