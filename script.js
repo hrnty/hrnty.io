@@ -137,9 +137,11 @@ function calculateSensitivity() {
  */
 function copyToClipboard(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.textContent;
-    btn.textContent = 'Copied';
-    setTimeout(() => btn.textContent = orig, 1000);
+    const original = btn.textContent;
+    btn.textContent = 'Copied';         // ここが変更ポイント
+    setTimeout(() => {
+      btn.textContent = original;       // 1秒後に元に戻す
+    }, 1000);
   });
 }
 
