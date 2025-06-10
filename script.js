@@ -1,3 +1,5 @@
+// script.js
+
 // 各ゲームのYaw値（キー名がアイコン画像ファイル名と一致）
 const yawValues = {
   apex: 0.022,
@@ -59,12 +61,7 @@ function setupCustomSelect(id, onChange) {
   const labelEl = trigger.querySelector('.label');
   const iconEl  = trigger.querySelector('.icon');
 
-  // 開閉トグル
-  trigger.addEventListener('click', () => {
-    select.classList.toggle('open');
-  });
-
-  // 選択肢を生成
+  // 1) 選択肢を生成（最初に）
   options.innerHTML = '';
   Object.keys(yawValues).forEach(key => {
     const li = document.createElement('li');
@@ -76,25 +73,26 @@ function setupCustomSelect(id, onChange) {
     options.appendChild(li);
   });
 
-  // 選択処理：どこをクリックしても反応し、選択後に閉じる
+  // 2) トリガーをクリック → 開閉
+  trigger.addEventListener('click', () => {
+    select.classList.toggle('open');
+  });
+
+  // 3) リスト内クリック → 選択＆閉じる
   options.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li) return;
     const key = li.dataset.value;
 
-    // 選択状態を更新
     labelEl.textContent = key;
     iconEl.src          = `images/${key}.jpg`;
     iconEl.alt          = `${key} icon`;
 
-    // ドロップダウンを閉じる
     select.classList.remove('open');
-
-    // コールバック実行
     onChange(key);
   });
 
-  // 外部クリックで閉じる
+  // 4) ドキュメントクリック → 外なら閉じる
   document.addEventListener('click', e => {
     if (!select.contains(e.target)) {
       select.classList.remove('open');
@@ -112,44 +110,37 @@ function calculateSensitivity() {
 
   const yaw1 = yawValues[selectedGame1];
   const yaw2 = yawValues[selectedGame2];
-
-  // 360°移動距離(cm)
   const distance360 = (360 * 2.54) / (dpi * yaw1 * sens1);
-
-  // 各DPIでの変換感度
   const dpis = [400, 800, 1600, dpi];
-  const results = dpis.map(d => {
-    const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
-    return {
-      dpi:  d,
-      sens: sens2.toFixed(2),
-      d360: distance360.toFixed(2),
-      d180: (distance360 / 2).toFixed(2)
-    };
-  });
 
-  // 結果テーブル作成
   let html = `<table>
     <tr><th>DPI</th><th>360°/cm</th><th>180°/cm</th><th>変換感度</th><th>Copy</th></tr>`;
-  results.forEach(r => {
+
+  dpis.forEach(d => {
+    const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
+    const s = sens2.toFixed(2);
     html += `<tr>
-      <td>${r.dpi}</td>
-      <td>${r.d360}</td>
-      <td>${r.d180}</td>
-      <td>${r.sens}</td>
-      <td><button onclick="copyToClipboard('${r.sens}')">Copy</button></td>
+      <td>${d}</td>
+      <td>${distance360.toFixed(2)}</td>
+      <td>${(distance360/2).toFixed(2)}</td>
+      <td>${s}</td>
+      <td><button onclick="copyToClipboard(this,'${s}')">Copy</button></td>
     </tr>`;
   });
-  html += `</table>`;
 
+  html += `</table>`;
   resultContainer.innerHTML = html;
 }
 
 /**
- * クリップボードへコピー
+ * クリップボードへコピーし、ボタンを一時変更
  */
-function copyToClipboard(text) {
-  navigator.clipboard.writeText(text);
+function copyToClipboard(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(() => btn.textContent = orig, 1000);
+  });
 }
 
 // 初期化
