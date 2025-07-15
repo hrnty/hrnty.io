@@ -51,7 +51,7 @@ let selectedGame2 = null;
 
 /**
  * カスタムセレクト（開閉＋選択）をまとめて設定
- * @param {string} id         - select要素のID (e.g. "game1-select")
+ * @param {string} id        - select要素のID (e.g. "game1-select")
  * @param {Function} onChange - 選択時に呼ぶコールバック
  */
 function setupCustomSelect(id, onChange) {
@@ -109,7 +109,7 @@ function calculateSensitivity() {
   if (!dpi || !sens1 || !selectedGame1 || !selectedGame2) return;
 
   const yaw1 = yawValues[selectedGame1];
-  const yaw2 = yawValues[selectedGame2];
+  const yaw2 = yawValues[selected2];
   const distance360 = (360 * 2.54) / (dpi * yaw1 * sens1);
   const dpis = [400, 800, 1600, dpi];
 
@@ -118,11 +118,12 @@ function calculateSensitivity() {
 
   dpis.forEach(d => {
     const sens2 = (360 * 2.54) / (d * yaw2 * distance360);
-    const s = sens2.toFixed(2);
+    // ここを toFixed(3) に変更しました
+    const s = sens2.toFixed(3); 
     html += `<tr>
       <td>${d}</td>
-      <td>${distance360.toFixed(2)}</td>
-      <td>${(distance360/2).toFixed(2)}</td>
+      <td>${distance360.toFixed(3)}</td> // ここも toFixed(3) に変更しました
+      <td>${(distance360/2).toFixed(3)}</td> // ここも toFixed(3) に変更しました
       <td>${s}</td>
       <td><button onclick="copyToClipboard(this,'${s}')">Copy</button></td>
     </tr>`;
@@ -138,9 +139,9 @@ function calculateSensitivity() {
 function copyToClipboard(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
     const original = btn.textContent;
-    btn.textContent = 'Copied';         // ここが変更ポイント
+    btn.textContent = 'Copied';        // ここが変更ポイント
     setTimeout(() => {
-      btn.textContent = original;       // 1秒後に元に戻す
+      btn.textContent = original;      // 1秒後に元に戻す
     }, 1000);
   });
 }
