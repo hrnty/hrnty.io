@@ -1,0 +1,5 @@
+{
+  "name": "タスクタイマー",
+  "description": "A web application to track cumulative work time for tasks, with AI-powered analysis of your productivity based on weekly data and comments.",
+  "requestFramePermissions": []
+}
